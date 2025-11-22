@@ -1,0 +1,12 @@
+.value-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.value-list li {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 6px 0;
+}
