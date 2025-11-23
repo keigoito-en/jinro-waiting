@@ -1,5 +1,6 @@
 .value-list {
-  list-style: none;
+  font-size: 32px;
+  font-weight: 700;
   padding: 0;
   margin: 10px 0 0;
 }
@@ -9,4 +10,86 @@
   font-weight: 700;
   color: var(--accent);
   margin: 6px 0;
+}
+
+/* 背景にポスター画像を使う */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('jinro.jpg') center/cover no-repeat;
+  filter: blur(6px) brightness(0.8);
+  z-index: -2;
+}
+
+/* 半透明オーバーレイ */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+/* 中央パネル */
+.panel {
+  max-width: 430px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 24px 32px;
+  border-radius: 12px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+/* タイトル */
+.title {
+  font-size: 28px;
+  margin-bottom: 16px;
+  letter-spacing: 1.5px;
+}
+
+/* 呼出し番号リスト */
+.number-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.number-list li {
+  font-size: 36px;
+  font-weight: bold;
+  padding: 8px 0;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* 待ち時間パネル */
+.wait-block {
+  margin-top: 24px;
+  padding: 16px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+.wait-label {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.wait-time {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* 更新時刻 */
+.updated-time {
+  margin-top: 12px;
+  font-size: 13px;
+  opacity: 0.75;
 }

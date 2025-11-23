@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>待ち時間表示</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
-    <h1>現在の呼出し</h1>
+
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <main class="panel">
+    <h1 class="title">現在の呼出し</h1>
 
     <section class="card">
       <div class="label">呼び出し中の番号</div>
       <ul id="callingList" class="value-list"></ul>
     </section>
 
+    <br></br>
+
     <section class="card">
+      <div class="label">呼び出し待ちの番号</div>
+      <ul id="waitingList" class="value-list"></ul>
       <div class="label">推定待ち時間</div>
       <div id="waitingTime" class="value">--</div>
     </section>
@@ -29,15 +37,17 @@
         const res = await fetch('status.json', { cache: 'no-store' });
         const data = await res.json();
 
-        // ▼ 複数番号の表示
-        const list = document.getElementById('callingList');
-        list.innerHTML = ""; // 初期化
-        (data.calling_numbers ?? []).forEach(num => {
-          const li = document.createElement('li');
-          li.textContent = num;
-          list.appendChild(li);
-        });
+        // // ▼ 複数番号の表示
+        // const list = document.getElementById('callingList');
+        // list.innerHTML = ""; // 初期化
+        // (data.calling_numbers ?? []).forEach(num => {
+        //   const li = document.createElement('li');
+        //   li.textContent = num;
+        //   list.appendChild(li);
+        // });
 
+        document.getElementById('callingList').textContent = data.calling_numbers ?? '－';
+        document.getElementById('waitingList').textContent = data.waiting_numbers ?? '－';
         document.getElementById('waitingTime').textContent = data.waiting_time ?? '－';
         document.getElementById('updated').textContent = '最終更新: ' + (data.last_updated ?? '--');
       } catch (e) {
