@@ -1,6 +1,6 @@
 {
   "waiting_time": "20分",
-  "calling_numbers": "1 ～ 87",
-  "waiting_numbers": "88 ～ 100",
+  "calling_numbers": "1 ～ 100",
+  "waiting_numbers": "--",
   "last_updated": "2025-11-23 17:04"
 }
